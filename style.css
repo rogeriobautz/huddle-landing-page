@@ -9,8 +9,9 @@ body {
   background-image: url(./images/bg-mobile.svg);
   background-size: contain;
   background-repeat: no-repeat;
-  background-color: #674bb1;
-  background-blend-mode: screen;
+  background-color: hsl(257, 40%, 49%);
+  background-blend-mode: normal;
+
   min-height: 100vh;
   min-width: 100vw;
   display: flex;
@@ -21,6 +22,9 @@ body {
   font-family: 'Open Sans';
 }
 
+a {
+  cursor: pointer;
+}
 img {
   width: 100%;
   object-fit: contain;
@@ -87,9 +91,21 @@ footer,
   padding: 0.6875em 5em;
   font-size: 1rem;
   background: white;
+  color: hsl(257, 40%, 49%);
   border-radius: 50px;
   font-weight: 400;
   margin-bottom: 2em;
+  transition: ease 0.3s;
+}
+
+.register-box a:hover {
+  background: #e980e7;
+  color: white;
+}
+
+.icon:hover::before {
+  color: #fd52c2;
+  border-color: #fd52c2;
 }
 
 footer {
@@ -98,13 +114,19 @@ footer {
   align-items: center;
   padding-bottom: 4vh;
 }
-
+footer ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
 .icon {
   content: '';
   width: 28px;
   height: 28px;
   text-align: center;
   font-size: 0.925rem;
+  color: white;
 }
 
 .icon::before {
@@ -113,15 +135,15 @@ footer {
   padding: 8px;
 }
 
-.icon:nth-child(1)::before {
+.fa-facebook-f::before {
   padding: 8px 11px;
 }
 
-.icon:nth-child(3)::before {
+.fa-instagram::before {
   padding: 8px 9px;
 }
 
-.icon:nth-child(2) {
+.fa-twitter {
   margin-inline: 20px;
 }
 
@@ -209,6 +231,9 @@ footer {
     flex-direction: row;
     justify-content: flex-end;
     align-items: flex-start;
+  }
+
+  footer ul {
     margin-right: 85px;
   }
 
@@ -221,8 +246,8 @@ footer {
     padding: 8px;
   }
 
-  .icon:nth-child(1)::before {
-    padding: 8px 13px;
+  .fa-facebook-f::before {
+    padding: 8px 12px;
   }
 }
 
