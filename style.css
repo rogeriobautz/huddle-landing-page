@@ -4,6 +4,7 @@
   text-decoration: none;
   box-sizing: border-box;
 }
+
 body {
   background-image: url(./images/bg-mobile.svg);
   background-size: contain;
@@ -12,8 +13,9 @@ body {
   background-blend-mode: screen;
   min-height: 100vh;
   min-width: 100vw;
-  display: center;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   color: white;
   font-family: 'Open Sans';
@@ -31,20 +33,35 @@ a {
   font-weight: 600;
 }
 
+header,
+footer,
+.container {
+  width: 100%;
+}
+
 .container {
   min-width: 320px;
-  max-width: 375px;
-  padding: max(38px, 5vw);
-  display: flex;
-  flex-direction: column;
+  padding-inline: max(38px, 5vw);
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    'mockups'
+    'register-box';
 }
 
 .logo {
-  width: 120px;
+  width: 40vw;
   align-self: flex-start;
-  margin-bottom: 60px;
+  grid-area: logo;
+  padding-left: max(38px, 5vw);
+  padding-top: 5vh;
+}
+
+.mockups {
+  grid-area: mockups;
 }
 
 .register-box {
@@ -53,7 +70,8 @@ a {
   justify-content: flex-start;
   align-items: center;
   text-align: center;
-  margin-top: 60px;
+  grid-area: register-box;
+  margin-top: min(60px, 7.5vh);
 }
 
 .register-box h1 {
@@ -78,6 +96,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-bottom: 4vh;
 }
 
 .icon {
@@ -104,4 +123,127 @@ footer {
 
 .icon:nth-child(2) {
   margin-inline: 20px;
+}
+
+@media (min-width: 480px) {
+  .container {
+    justify-items: center;
+  }
+  .logo {
+    width: 180px;
+  }
+  .mockups {
+    padding-inline: 10%;
+  }
+  .register-box {
+    padding-inline: 19%;
+  }
+  .register-box h1 {
+    font-size: 2rem;
+  }
+  .register-box p {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  html,
+  body {
+    min-height: 100vh;
+  }
+  body {
+    background-image: url(./images/bg-desktop.svg);
+    background-size: cover;
+    background-size: auto 100%;
+    background-position: bottom right;
+    overflow: hidden;
+  }
+
+  .container {
+    width: 100vw;
+    margin: 0;
+    min-width: unset;
+    max-width: unset;
+    display: grid;
+    grid-template-columns: 49vw auto;
+    grid-template-rows: 1fr;
+    grid-template-areas: 'mockups register-box';
+    column-gap: 40px;
+    padding: 0px 70px 0 60px;
+    align-items: start;
+  }
+
+  .logo {
+    width: 220px;
+    margin: 40px auto 0 60px;
+    padding: 0;
+  }
+
+  .mockups {
+    padding: 0;
+  }
+
+  .register-box {
+    padding: 0;
+    margin-top: 40px;
+    text-align: start;
+    align-items: flex-start;
+  }
+
+  .register-box h1 {
+    font-size: 2rem;
+  }
+
+  .register-box p {
+    font-size: 1.125rem;
+  }
+
+  .register-box a {
+    padding: 0.6875em 4em;
+    font-size: 1.125rem;
+    margin-left: 15px;
+  }
+
+  footer {
+    margin: 0;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+    margin-right: 85px;
+  }
+
+  .icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+  .icon::before {
+    padding: 8px;
+  }
+
+  .icon:nth-child(1)::before {
+    padding: 8px 13px;
+  }
+}
+
+@media (min-width: 1200px) {
+  body {
+    background-size: 90% 105%;
+    background-position: 0px -45px;
+  }
+
+  .container {
+    width: 100vw;
+    column-gap: 50px;
+    padding: 0 90px 0 80px;
+  }
+
+  .logo {
+    width: 220px;
+    margin: 60px auto 0 80px;
+  }
+
+  .register-box h1 {
+    font-size: 2.375rem;
+  }
 }
